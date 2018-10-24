@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -6,16 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  email: string;
-  password: string;
+  email: string = 'rp@rp.com';
+  password: string = 'rp';
 
   public register() {
-    console.log(this.email);
-    console.log(this.password);
-    
+    this.authService.signup(this.email, this.password)
+      .subscribe(
+        (res) => console.log,
+        (err) => console.error
+      );
   }
 
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
   }

@@ -24,10 +24,10 @@ import { FormsModule } from '@angular/forms';
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {
-          return localStorage.getItem('access_token');
+          return localStorage.getItem('token');
         },
         whitelistedDomains: ['localhost:3000'],
-        blacklistedRoutes: ['localhost:3000/auth']
+        blacklistedRoutes: ['localhost:3000/users']
       }
     }),
     AppRoutingModule,
