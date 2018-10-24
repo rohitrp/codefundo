@@ -7,12 +7,16 @@ import { HomeComponent } from './home/home.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SignupComponent } from './signup/signup.component';
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,9 @@ import { NavbarComponent } from './navbar/navbar.component';
         whitelistedDomains: ['localhost:3000'],
         blacklistedRoutes: ['localhost:3000/auth']
       }
-    })
+    }),
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

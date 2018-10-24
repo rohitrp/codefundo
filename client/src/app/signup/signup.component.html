@@ -1,0 +1,45 @@
+<div class="container">
+  <section class="section">
+    <form #signupForm="ngForm" (submit)="register()">
+      <div class="columns is-centered">
+        <div class="column is-6">
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                  <input class="input" type="email" placeholder="Email" [(ngModel)]="email" name="email">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <p class="control has-icons-left">
+                  <input class="input" type="password" placeholder="Password" [(ngModel)]="password" name="password">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <p class="control">
+                  <button class="button is-primary">
+                    Signup
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SEOService } from './_services/seo.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'relief-shelter';
+
+  constructor(
+    private seoService: SEOService
+  ) {
+    this.seoService.addSeoData();
+  }
 }
