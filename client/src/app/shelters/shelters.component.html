@@ -1,0 +1,20 @@
+<div class="columns is-mobile">
+  <div class="column is-1 sidenav has-text-centered">
+    <div class="column">
+      <a>
+        <i class="far fa-circle fa-2x has-text-grey" (click)="tab = 0"></i>
+      </a>
+    </div>
+    <div class="column">
+      <a>
+        <i class="fas fa-plus fa-2x has-text-grey" (click)="tab = 1"></i>
+      </a>
+    </div>
+  </div>
+  <div class="column" *ngIf="tab === 0">
+
+  </div>
+  <div class="column" *ngIf="tab === 1">
+    
+  </div>
+</div>

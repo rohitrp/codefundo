@@ -12,9 +12,12 @@
   </div>
 
   <div id="navbarReliefShelter" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item" *ngIf="authService.isAuthenticated()" routerLink="">
+    <div class="navbar-start" *ngIf="authService.isAuthenticated()">
+      <a class="navbar-item" routerLink="">
         Home
+      </a>
+      <a class="navbar-item" routerLink="shelters">
+        Shelters
       </a>
     </div>
 

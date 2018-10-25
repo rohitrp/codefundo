@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private jwtHelper: JwtHelperService
+    private jwtHelper: JwtHelperService,
+    private router: Router
   ) { }
 
   apiBaseUrl = environment.apiBaseUrl;
@@ -38,6 +40,7 @@ export class AuthService {
 
   public logout() {
     localStorage.removeItem('user');
+    this.router.navigate(['']);
   }
 
   public isAuthenticated() {
