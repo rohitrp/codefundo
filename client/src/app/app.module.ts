@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { AuthGuard } from './_guards/auth.guard';
 import { AlertService } from './_services/alert.service';
+import { SheltersComponent } from './shelters/shelters.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AlertService } from './_services/alert.service';
     HomeComponent,
     NavbarComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    SheltersComponent
   ],
   imports: [
     BrowserModule,

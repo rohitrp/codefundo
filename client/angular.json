@@ -27,11 +27,15 @@
               "node_modules/bulma/css/bulma.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/noty/lib/noty.css",
-              "node_modules/noty/lib/themes/nest.css"
+              "node_modules/noty/lib/themes/nest.css",
+              "node_modules/mapbox-gl/dist/mapbox-gl.css",
+              "node_modules/@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/noty/lib/noty.min.js"
+              "node_modules/noty/lib/noty.min.js",
+              "node_modules/mapbox-gl/dist/mapbox-gl.js",
+              "node_modules/@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.min.js"
             ]
           },
           "configurations": {

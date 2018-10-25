@@ -22,9 +22,11 @@
     "@angular/router": "^6.1.0",
     "@auth0/angular-jwt": "^2.0.0",
     "@fortawesome/fontawesome-free": "^5.4.1",
+    "@mapbox/mapbox-gl-geocoder": "^2.3.0",
     "bulma": "^0.7.2",
     "core-js": "^2.5.4",
     "jquery": "^3.3.1",
+    "mapbox-gl": "^0.50.0",
     "noty": "^3.2.0-beta",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
