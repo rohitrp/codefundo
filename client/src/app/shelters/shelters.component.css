@@ -1,4 +1,4 @@
-/* .sidenav {
-  border-right: 1px gray solid;
-  height: 100vh;
-} */
+.is-vertical-center {
+  display: flex;
+  align-items: center;
+}
