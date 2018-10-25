@@ -1,5 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import * as $ from 'jquery';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,9 @@ import * as $ from 'jquery';
 })
 export class NavbarComponent implements AfterViewInit {
 
-  constructor() { }
+  constructor(
+    public authService: AuthService
+  ) { }
 
   ngAfterViewInit() {
     $(".navbar-burger").click(function () {

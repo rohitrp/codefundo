@@ -3,16 +3,16 @@ import { AuthService } from '../_services/auth.service';
 import { AlertService } from '../_services/alert.service';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class SignupComponent implements OnInit {
+export class LoginComponent implements OnInit {
   email: string;
   password: string;
 
-  public signup() {
-    this.authService.signup(this.email, this.password)
+  public login() {
+    this.authService.login(this.email, this.password)
       .subscribe(
         (res) => {
           localStorage.setItem('user', JSON.stringify(res['user']))
@@ -28,5 +28,4 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

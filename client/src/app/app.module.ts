@@ -5,18 +5,23 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 import { JwtModule } from '@auth0/angular-jwt';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SignupComponent } from './signup/signup.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { ErrorInterceptor } from './_helpers/error.interceptor';
+import { AuthGuard } from './_guards/auth.guard';
+import { AlertService } from './_services/alert.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    SignupComponent
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,11 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    AuthGuard,
+    AlertService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
