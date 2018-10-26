@@ -1,6 +1,7 @@
 import { Component, AfterViewInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +10,12 @@ import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 })
 export class HomeComponent implements AfterViewInit {
 
+  mapboxAccessToken = environment.mapboxAccessToken;
+
   constructor() { }
 
   ngAfterViewInit() {
-    Object.getOwnPropertyDescriptor(mapboxgl, "accessToken").set('pk.eyJ1Ijoicm9oaXRycCIsImEiOiJjam5vejdtYmYyMG1tM3FzNXA1YnVib3JiIn0.5x5lvYoSAxmmc3EQAg19og');
+    Object.getOwnPropertyDescriptor(mapboxgl, "accessToken").set(this.mapboxAccessToken);
 
     var map = new mapboxgl.Map({
       container: 'map',

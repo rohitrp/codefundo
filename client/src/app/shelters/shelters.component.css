@@ -1,4 +1,4 @@
-.is-vertical-center {
-  display: flex;
-  align-items: center;
+#map {
+  width: 100%;
+  height: 500px;
 }

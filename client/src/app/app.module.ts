@@ -15,6 +15,7 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { AuthGuard } from './_guards/auth.guard';
 import { AlertService } from './_services/alert.service';
 import { SheltersComponent } from './shelters/shelters.component';
+import { environment } from 'src/environments/environment.prod';
 
 @NgModule({
   declarations: [
@@ -31,10 +32,12 @@ import { SheltersComponent } from './shelters/shelters.component';
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {
-          return localStorage.getItem('token');
+          const user = JSON.parse(localStorage.getItem('user'));
+          if (!user) return '';
+          return user.token;
         },
         whitelistedDomains: ['localhost:3000'],
-        blacklistedRoutes: ['localhost:3000/users']
+        blacklistedRoutes: ['localhost:3000/api/users/']
       }
     }),
     AppRoutingModule,

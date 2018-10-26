@@ -50,7 +50,8 @@
               <div class="field">
                 <label class="label">Address</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="Address" [(ngModel)]="shelter.address" name="address" required>
+                  <input class="input" type="text" placeholder="Address" [(ngModel)]="shelter.address" name="address"
+                    required>
                 </div>
               </div>
             </div>
@@ -70,7 +71,19 @@
               <div class="field">
                 <label class="label">State</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="State" [(ngModel)]="shelter.state" name="state" required>
+                  <input class="input" type="text" placeholder="State" [(ngModel)]="shelter.state" name="state"
+                    required>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">Locate Your Shelter</label>
+                <div class="control">
+                  <input type="hidden" id="lnglat" [(ngModel)]="shelter.lngLat" [value]="shelter.lngLat" name="lnglat">
+                  <div id="map"></div>
                 </div>
               </div>
             </div>
