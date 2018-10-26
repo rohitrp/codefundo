@@ -21,4 +21,10 @@ export class SheltersService {
       shelter
     );
   }
+
+  public getAllShelters(): Observable<Shelter[]> {
+    return this.http.get<Shelter[]>(
+      `${this.apiBaseUrl}/shelters`
+    );
+  }
 }

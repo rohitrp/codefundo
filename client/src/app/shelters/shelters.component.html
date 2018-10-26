@@ -12,10 +12,15 @@
     </div>
   </div>
   <div class="column" *ngIf="tab === 0">
-    <div class="container has-text-centered">
+    <div class="container">
       <div class="section">
-        <div class="content" *ngIf="shelters.length === 0">
+        <div class="content has-text-centered" *ngIf="shelters.length === 0">
           <h1 class="has-text-grey-lighter">No shelters available</h1>
+        </div>
+        <div class="columns is-multiline">
+          <div class="column is-4" *ngFor="let shelter of shelters">
+            <app-shelter-card [shelter]="shelter"></app-shelter-card>
+          </div>
         </div>
       </div>
     </div>

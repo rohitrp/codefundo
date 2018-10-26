@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AlertService } from '../_services/alert.service';
 import { SheltersService } from '../_services/shelters.service';
 
@@ -7,7 +7,7 @@ import { SheltersService } from '../_services/shelters.service';
   templateUrl: './shelters.component.html',
   styleUrls: ['./shelters.component.css']
 })
-export class SheltersComponent implements AfterViewInit {
+export class SheltersComponent implements OnInit {
   tab = 0;
   shelters = [];
 
@@ -16,8 +16,12 @@ export class SheltersComponent implements AfterViewInit {
     private shelterService: SheltersService
   ) { }
 
-  ngAfterViewInit() {
-
+  ngOnInit() {
+    this.shelterService.getAllShelters()
+      .subscribe(
+        (res) => this.shelters = res,
+        (err) => this.alertService.error(err)
+      )
   }
 
 }
