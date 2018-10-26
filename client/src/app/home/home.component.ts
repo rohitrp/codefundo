@@ -56,12 +56,15 @@ export class HomeComponent implements AfterViewInit {
             shelterMarkerDiv.style.width = '50px';
             shelterMarkerDiv.style.height = '50px';
             shelterMarkerDiv.style.backgroundRepeat = 'no-repeat'
-            
+
             const shelter = res[i];
-            console.log(shelter);
             
             new mapboxgl.Marker(shelterMarkerDiv)
               .setLngLat(shelter.lngLat.split(','))
+              .setPopup(
+                new mapboxgl.Popup({ offset: 25 }) // add popups
+                  .setHTML('<h3 class="subtitle">' + shelter.name + '</h3><p>' + shelter.contact + '</p>')
+              )
               .addTo(map);
           }
         },

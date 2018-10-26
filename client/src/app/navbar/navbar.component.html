@@ -34,6 +34,13 @@
       </div>
       <div class="navbar-item" *ngIf="authService.isAuthenticated()">
         <div class="buttons">
+          <a class="button is-outlined is-info" routerLink="request">
+            <strong>Request a Shelter</strong>
+          </a>
+        </div>
+      </div>
+      <div class="navbar-item" *ngIf="authService.isAuthenticated()">
+        <div class="buttons">
           <a class="button is-danger" (click)="authService.logout()">
             <strong>Logout</strong>
           </a>
