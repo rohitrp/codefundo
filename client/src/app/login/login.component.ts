@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  email: string = 'rp@rp.com';
-  password: string = 'rp';
+  email: string = '';
+  password: string = '';
 
   public login() {
     this.authService.login(this.email, this.password)
