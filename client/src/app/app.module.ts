@@ -16,6 +16,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { AlertService } from './_services/alert.service';
 import { SheltersComponent } from './shelters/shelters.component';
 import { environment } from 'src/environments/environment.prod';
+import { AddShelterComponent } from './shelters/add-shelter/add-shelter.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { environment } from 'src/environments/environment.prod';
     NavbarComponent,
     SignupComponent,
     LoginComponent,
-    SheltersComponent
+    SheltersComponent,
+    AddShelterComponent
   ],
   imports: [
     BrowserModule,

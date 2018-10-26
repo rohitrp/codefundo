@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="section">
+    <form #shelterForm="ngForm" (submit)="addShelter()">
+      <div class="columns">
+        <div class="column">
+          <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Name" [(ngModel)]="shelter.name" name="name" required>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <div class="field">
+            <label class="label">Contact Number</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Contact Number" [(ngModel)]="shelter.contact" name="contact"
+                required>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <div class="field">
+            <label class="label">Address</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Address" [(ngModel)]="shelter.address" name="address"
+                required>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <div class="field">
+            <label class="label">City</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="City" [(ngModel)]="shelter.city" name="city" required>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <div class="field">
+            <label class="label">State</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="State" [(ngModel)]="shelter.state" name="state"
+                required>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <div class="field">
+            <label class="label">Locate Your Shelter</label>
+            <div class="control">
+              <input type="hidden" id="lnglat" [(ngModel)]="shelter.lngLat" [value]="shelter.lngLat" name="lnglat">
+              <div id="map"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <div class="field">
+            <button class="button is-primary is-outlined" [disabled]="!shelterForm.form.valid">Add Shelter</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
