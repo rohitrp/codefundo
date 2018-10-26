@@ -27,4 +27,18 @@ export class SheltersService {
       `${this.apiBaseUrl}/shelters`
     );
   }
+
+  public joinShelter(shelter): Observable<any> {
+    return this.http.post(
+      `${this.apiBaseUrl}/shelters/join`,
+      { shelter: shelter }
+    );
+  }
+
+  public leaveShelter(shelter): Observable<any> {
+    return this.http.post(
+      `${this.apiBaseUrl}/shelters/leave`,
+      { shelter: shelter }
+    );
+  }
 }

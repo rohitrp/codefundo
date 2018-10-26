@@ -56,4 +56,10 @@ export class AuthService {
 
     return user.token;
   }
+
+  public getUserDetails() {
+    return this.http.get(
+      `${this.apiBaseUrl}/users/details`
+    );
+  }
 }

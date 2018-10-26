@@ -12,12 +12,19 @@
       <span class="has-text-info">City:</span> {{shelter.city}}
       <br>
       <span class="has-text-info">State:</span> {{shelter.state}}
+      <br><br>
+      <a href="{{bingMapUrl}}" target="_blank" class="button is-outlined">Open in Bing Maps</a>
     </div>
   </div>
   <footer class="card-footer">
-    <a class="card-footer-item button is-white">
-      <span class="icon">
+    <a class="card-footer-item button is-white" *ngIf="user.shelter !== shelter['_id']" (click)="joinShelter()">
+      <span class="icon has-text-grey">
         <i class="fas fa-sign-in-alt"> Join</i>
+      </span>
+    </a>
+    <a class="card-footer-item button is-white" *ngIf="user.shelter === shelter['_id']" (click)="leaveShelter()">
+      <span class="icon has-text-danger">
+        <i class="fas fa-sign-out-alt"> Leave</i>
       </span>
     </a>
   </footer>
