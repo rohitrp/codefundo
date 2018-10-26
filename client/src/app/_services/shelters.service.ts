@@ -41,4 +41,17 @@ export class SheltersService {
       { shelter: shelter }
     );
   }
+
+  public requestShelter(lngLat): Observable<any> {
+    return this.http.post(
+      `${this.apiBaseUrl}/users/request`,
+      { lngLat: lngLat }
+    );
+  }
+
+  public getShelterRequest(): Observable<any> {
+    return this.http.get(
+      `${this.apiBaseUrl}/users/request`
+    );
+  }
 }

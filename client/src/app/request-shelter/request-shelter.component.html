@@ -4,10 +4,12 @@
       <div class="container">
         <div class="section content">
           <h2 class="has-text-white">Locate your position on map</h2>
-          <button class="button is-info">Clear</button>
+          <button class="button is-info" (click)="submitRequest()">Submit Request</button>&nbsp;
+          <button class="button is-info" (click)="clearRequest()">Clear</button>
         </div>
       </div>
     </div>
   </div>
+  <input type="hidden" id="lnglat" name="lnglat">
   <div id="map"></div>
 </div>
