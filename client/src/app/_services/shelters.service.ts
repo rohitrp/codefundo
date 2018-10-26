@@ -28,6 +28,12 @@ export class SheltersService {
     );
   }
 
+  public getAllSheltersRequests(): Observable<any> {
+    return this.http.get(
+      `${this.apiBaseUrl}/users/request/all`
+    );
+  }
+
   public joinShelter(shelter): Observable<any> {
     return this.http.post(
       `${this.apiBaseUrl}/shelters/join`,
