@@ -2,6 +2,8 @@ import { Component, AfterViewInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { environment } from 'src/environments/environment';
+import { SheltersService } from '../_services/shelters.service';
+import { AlertService } from '../_services/alert.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +14,10 @@ export class HomeComponent implements AfterViewInit {
 
   mapboxAccessToken = environment.mapboxAccessToken;
 
-  constructor() { }
+  constructor(
+    private sheltersService: SheltersService,
+    private alertService: AlertService
+  ) { }
 
   ngAfterViewInit() {
     Object.getOwnPropertyDescriptor(mapboxgl, "accessToken").set(this.mapboxAccessToken);
@@ -21,12 +26,8 @@ export class HomeComponent implements AfterViewInit {
       container: 'map',
       style: 'mapbox://styles/mapbox/navigation-guidance-night-v4',
       center: [72.914294, 19.130722],
-      zoom: 16
+      zoom: 12
     });
-
-    var marker = new mapboxgl.Marker()
-      .setLngLat([72.914294, 19.130722])
-      .addTo(map);
 
     map.addControl(new mapboxgl.GeolocateControl({
       positionOptions: {
@@ -38,6 +39,34 @@ export class HomeComponent implements AfterViewInit {
     map.addControl(new MapboxGeocoder({
       accessToken: mapboxgl.accessToken
     }));
+
+    var personMarkerDiv = document.createElement('div');
+    personMarkerDiv.style.backgroundImage = 'url("../../assets/person.png")';
+    personMarkerDiv.style.width = '100px';
+    personMarkerDiv.style.height = '100px';
+    personMarkerDiv.style.backgroundRepeat = 'no-repeat'
+
+    this.sheltersService.getAllShelters()
+      .subscribe(
+        (res) => {
+          var i = 0;
+          for (i = 0; i < res.length; i++) {
+            var shelterMarkerDiv = document.createElement('div');
+            shelterMarkerDiv.style.backgroundImage = 'url("../../assets/shelter.png")';
+            shelterMarkerDiv.style.width = '50px';
+            shelterMarkerDiv.style.height = '50px';
+            shelterMarkerDiv.style.backgroundRepeat = 'no-repeat'
+            
+            const shelter = res[i];
+            console.log(shelter);
+            
+            new mapboxgl.Marker(shelterMarkerDiv)
+              .setLngLat(shelter.lngLat.split(','))
+              .addTo(map);
+          }
+        },
+        (err) => this.alertService.error(err)
+      )
   }
 
 }
