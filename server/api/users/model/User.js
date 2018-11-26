@@ -16,6 +16,6 @@ const userModel = new Schema({
     // last_name: { type: String, required: true },
     password: { type: String, required: true },
     shelter:  { type: Schema.Types.ObjectId, ref: 'Shelter' },
-    shelterRequestLngLat: { type: String, required: true }
+    shelterRequestLngLat: { type: String }
 });
 module.exports = mongoose.model('User', userModel);

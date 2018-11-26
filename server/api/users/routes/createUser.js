@@ -21,7 +21,7 @@ module.exports = {
       user.email = request.payload.email
       user.password = await hashPasword(request.payload.password)
 
-      await user.save()
+      await user.save(console.error)
       
       return getUserDetails(user);
     },
