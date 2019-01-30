@@ -46,7 +46,7 @@ export class HomeComponent implements AfterViewInit {
           var i = 0;
           for (i = 0; i < res.length; i++) {
             var shelterMarkerDiv = document.createElement('div');
-            shelterMarkerDiv.style.backgroundImage = 'url("../../assets/shelter.png")';
+            shelterMarkerDiv.style.backgroundImage = 'url("assets/shelter.png")';
             shelterMarkerDiv.style.width = '50px';
             shelterMarkerDiv.style.height = '50px';
             shelterMarkerDiv.style.backgroundRepeat = 'no-repeat'
@@ -65,30 +65,30 @@ export class HomeComponent implements AfterViewInit {
         (err) => this.alertService.error(err)
       );
 
-    this.sheltersService.getAllSheltersRequests()
-      .subscribe(
-        (res) => {
-          var i = 0;
-          for (i = 0; i < res.length; i++) {
-            var personMarkerDiv = document.createElement('div');
-            personMarkerDiv.style.backgroundImage = 'url("../../assets/person.png")';
-            personMarkerDiv.style.width = '100px';
-            personMarkerDiv.style.height = '100px';
-            personMarkerDiv.style.backgroundRepeat = 'no-repeat'
+    // this.sheltersService.getAllSheltersRequests()
+    //   .subscribe(
+    //     (res) => {
+    //       var i = 0;
+    //       for (i = 0; i < res.length; i++) {
+    //         var personMarkerDiv = document.createElement('div');
+    //         personMarkerDiv.style.backgroundImage = 'url("assets/person.png")';
+    //         personMarkerDiv.style.width = '100px';
+    //         personMarkerDiv.style.height = '100px';
+    //         personMarkerDiv.style.backgroundRepeat = 'no-repeat'
 
-            const userShelterRequest = res[i];
+    //         const userShelterRequest = res[i];
 
-            if (!userShelterRequest.shelterRequestLngLat) {
-              continue;
-            }
+    //         if (!userShelterRequest.shelterRequestLngLat) {
+    //           continue;
+    //         }
 
-            new mapboxgl.Marker(personMarkerDiv)
-              .setLngLat(userShelterRequest.shelterRequestLngLat.split(','))
-              .addTo(map);
-          }
-        },
-        (err) => this.alertService.error(err)
-      );
+    //         new mapboxgl.Marker(personMarkerDiv)
+    //           .setLngLat(userShelterRequest.shelterRequestLngLat.split(','))
+    //           .addTo(map);
+    //       }
+    //     },
+    //     (err) => this.alertService.error(err)
+    //   );
   }
 
 }

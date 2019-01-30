@@ -48,7 +48,7 @@ export class RequestShelterComponent implements AfterViewInit, OnInit {
     }));
 
     var personMarkerDiv = document.createElement('div');
-    personMarkerDiv.style.backgroundImage = 'url("../../assets/person.png")';
+    personMarkerDiv.style.backgroundImage = 'url("assets/person.png")';
     personMarkerDiv.style.width = '100px';
     personMarkerDiv.style.height = '100px';
     personMarkerDiv.style.backgroundRepeat = 'no-repeat'
