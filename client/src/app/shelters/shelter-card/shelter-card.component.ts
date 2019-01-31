@@ -41,6 +41,10 @@ export class ShelterCardComponent implements OnInit {
   ) { }
 
   ngOnInit() {    
+    // this.shelterService.getHospitalDetails(this.shelter.lngLat, 10)
+    //   .subscribe(
+    //     (res) => console.log(res)
+    //   )
     this.bingMapUrl = `http://bing.com/maps/default.aspx?cp=${this.shelter.lngLat.split(',').reverse().join('~')}&sp=point.${this.shelter.lngLat.split(',').reverse().join('_')}_${this.shelter.name}_Shelter&lvl=15`
   }
 

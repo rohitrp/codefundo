@@ -14,7 +14,16 @@ import * as $ from 'jquery';
 })
 export class AddShelterComponent implements AfterViewInit {
   mapboxAccessToken = environment.mapboxAccessToken;
-  shelter = new Shelter('', '', '', '', '', '');
+  shelter = new Shelter('', '', '', '', '', '', '', null, null, null, false, null, null, null, null);
+
+  shelterDetailsTab = 0;
+
+  changeAddShelterTab(x) {
+    this.shelterDetailsTab += x;
+
+    if (this.shelterDetailsTab < 0) this.shelterDetailsTab = 0;
+    if (this.shelterDetailsTab > 1) this.shelterDetailsTab = 1;
+  }
 
   addShelter() {
     this.shelter.lngLat = $('#lnglat').val();
@@ -23,6 +32,8 @@ export class AddShelterComponent implements AfterViewInit {
       this.alertService.errorWithMessage('Location on map is required');
       return;
     }
+
+    console.log(this.shelter);
 
     this.shelterService.addShelter(this.shelter)
       .subscribe(

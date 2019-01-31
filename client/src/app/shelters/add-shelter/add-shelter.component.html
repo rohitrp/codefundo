@@ -2,58 +2,180 @@
   <div class="section">
     <form #shelterForm="ngForm" (submit)="addShelter()">
       <div class="columns">
-        <div class="column">
-          <div class="field">
-            <label class="label">Name</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="Name" [(ngModel)]="shelter.name" name="name" required>
+        <div class="column is-1">
+          <ul class="steps is-vertical">
+            <li class="steps-segment" [ngClass]="{'is-active': shelterDetailsTab === 0}">
+              <span class="steps-marker"></span>
+            </li>
+            <li class="steps-segment" [ngClass]="{'is-active': shelterDetailsTab === 1}">
+              <span class="steps-marker"></span>
+            </li>
+          </ul>
+        </div>
+        <div class="column" *ngIf="shelterDetailsTab === 0">
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">Shelter Name</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Shelter Name" [(ngModel)]="shelter.name" name="name" required>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">Contact Number</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Contact Number" [(ngModel)]="shelter.contact" name="contact"
+                    required>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">Address</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Address" [(ngModel)]="shelter.address" name="address"
+                    required>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">City</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="City" [(ngModel)]="shelter.city" name="city" required>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">State</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="State" [(ngModel)]="shelter.state" name="state"
+                    required>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">Zip Code</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Zip Code" [(ngModel)]="shelter.zipcode" name="zipcode"
+                    required>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column" *ngIf="shelterDetailsTab === 1">
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">Property Type <span *ngIf="shelter.propertyType" (click)="shelter.propertyType = null"
+                    class="is-size-6 has-text-info is-pulled-right">clear</span></label>
+                <div class="control radio-group">
+                  <input class="is-checkradio" type="radio" id="property-type-public" value="0" [(ngModel)]="shelter.propertyType"
+                    name="propertyType">
+                  <label for="property-type-public">Public</label>
+                  <input class="is-checkradio" type="radio" id="property-type-private" value="1" [(ngModel)]="shelter.propertyType"
+                    name="propertyType">
+                  <label for="property-type-private">Private</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">Infant Friendly? <span *ngIf="shelter.infantFriendly" (click)="shelter.infantFriendly = null"
+                    class="is-size-6 has-text-info is-pulled-right">clear</span></label>
+                <div class="control radio-group">
+                  <input class="is-checkradio" type="radio" id="infant-friendly-yes" value="1" [(ngModel)]="shelter.infantFriendly"
+                    name="infantFriendly">
+                  <label for="infant-friendly-yes">Yes</label>
+                  <input class="is-checkradio" type="radio" id="infant-friendly-no" value="0" [(ngModel)]="shelter.infantFriendly"
+                    name="infantFriendly">
+                  <label for="infant-friendly-no">No</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">Elder Friendly? <span *ngIf="shelter.elderFriendly" (click)="shelter.elderFriendly = null"
+                    class="is-size-6 has-text-info is-pulled-right">clear</span></label>
+                <div class="control radio-group">
+                  <input class="is-checkradio" type="radio" id="elder-friendly-yes" value="1" [(ngModel)]="shelter.elderFriendly"
+                    name="elderFriendly">
+                  <label for="elder-friendly-yes">Yes</label>
+                  <input class="is-checkradio" type="radio" id="elder-friendly-no" value="0" [(ngModel)]="shelter.elderFriendly"
+                    name="elderFriendly">
+                  <label for="elder-friendly-no">No</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">Are you living with your family? <span *ngIf="shelter.family" (click)="shelter.family = null"
+                    class="is-size-6 has-text-info is-pulled-right">clear</span></label>
+                <div class="control radio-group">
+                  <input class="is-checkradio" type="radio" id="family-yes" value="1" [(ngModel)]="shelter.family" name="family">
+                  <label for="family-yes">Yes</label>
+                  <input class="is-checkradio" type="radio" id="family-no" value="0" [(ngModel)]="shelter.family" name="family">
+                  <label for="family-no">No</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="columns" *ngIf="shelter.family === '1'">
+            <div class="column">
+              <div class="field">
+                <label class="label">Age range of family members <span *ngIf="shelter.familyAgeMin || shelter.familyAgeMax" (click)="shelter.familyAgeMin = null; shelter.familyAgeMax = null"
+                    class="is-size-6 has-text-info is-pulled-right">clear</span></label>
+
+                <div class="control">
+                  <div class="columns">
+                    <div class="column is-2">
+                      <input class="input" type="number" placeholder="Min" [(ngModel)]="shelter.familyAgeMin" name="familyAgeMin">
+                    </div>
+                    <div class="column is-2">
+                      <input class="input" type="number" placeholder="Max" [(ngModel)]="shelter.familyAgeMax" name="familyAgeMax">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="columns">
+
+      <div class="columns has-text-centered">
         <div class="column">
-          <div class="field">
-            <label class="label">Contact Number</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="Contact Number" [(ngModel)]="shelter.contact" name="contact"
-                required>
-            </div>
-          </div>
+          <button type="button" class="button is-primary" (click)="changeAddShelterTab(-1)" [disabled]="shelterDetailsTab == 0">Previous</button>
+        </div>
+        <div class="column">
+          <button type="button" class="button is-primary" (click)="changeAddShelterTab(1)" [disabled]="shelterDetailsTab == 1">Next</button>
         </div>
       </div>
-      <div class="columns">
-        <div class="column">
-          <div class="field">
-            <label class="label">Address</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="Address" [(ngModel)]="shelter.address" name="address"
-                required>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="columns">
-        <div class="column">
-          <div class="field">
-            <label class="label">City</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="City" [(ngModel)]="shelter.city" name="city" required>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="columns">
-        <div class="column">
-          <div class="field">
-            <label class="label">State</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="State" [(ngModel)]="shelter.state" name="state"
-                required>
-            </div>
-          </div>
-        </div>
-      </div>
+
       <div class="columns">
         <div class="column">
           <div class="field">
@@ -68,7 +190,8 @@
       <div class="columns">
         <div class="column">
           <div class="field">
-            <button class="button is-primary is-outlined" [disabled]="!shelterForm.form.valid">Add Shelter</button>
+            <button class="button is-primary is-outlined" [disabled]="!shelterForm.form.valid" type="submit">Add
+              Shelter</button>
           </div>
         </div>
       </div>

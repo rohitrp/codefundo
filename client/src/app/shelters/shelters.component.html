@@ -17,8 +17,8 @@
         <div class="content has-text-centered" *ngIf="shelters.length === 0">
           <h1 class="has-text-grey-lighter">No shelters available</h1>
         </div>
-        <div class="columns is-multiline">
-          <div class="column is-4" *ngFor="let shelter of shelters">
+        <div class="columns" *ngFor="let shelter of shelters">
+          <div class="column">
             <app-shelter-card [shelter]="shelter" [user]="user" (updateUserDetails)="updateUserDetails($event)"></app-shelter-card>
           </div>
         </div>

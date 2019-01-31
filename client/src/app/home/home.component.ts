@@ -24,7 +24,7 @@ export class HomeComponent implements AfterViewInit {
 
     var map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/navigation-guidance-night-v4',
+      style: 'mapbox://styles/mapbox/satellite-streets-v10',
       center: [72.914294, 19.130722],
       zoom: 12
     });

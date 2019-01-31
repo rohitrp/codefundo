@@ -60,4 +60,17 @@ export class SheltersService {
       `${this.apiBaseUrl}/users/request`
     );
   }
+
+  // public getHospitalDetails(lngLat, distance): Observable<any> {
+  //   return this.http.get(
+  //     `https://dev.virtualearth.net/REST/v1/LocalSearch/`,
+  //     {
+  //       params: {
+  //         'query': 'hospital',
+  //         'userLocation': lngLat,
+  //         'key': environment.bingMapsAPIKey
+  //       }
+  //     }
+  //   );
+  // }
 }
