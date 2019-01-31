@@ -13,6 +13,8 @@
                 <p class="subtitle">
                   {{ shelter.contact }}
                 </p>
+                <p class="has-text-weight-bold has-text-grey">Updated on {{shelter.lastUpdated | date: 'mediumDate'}} | {{shelter.lastUpdated | date: 'shortTime'}}</p>
+
               </div>
               <div class="column is-4">
                 <div class="content">
@@ -23,6 +25,17 @@
                   <span class="has-text-info">State:</span> {{shelter.state}}
                   <br><br>
                 </div>
+              </div>
+              <div class="column is-4">
+                <p class="has-text-weight-bold">Features:</p>
+                <ul>
+                  <li *ngIf="shelter.propertyType === '0'">Public Property</li>
+                  <li *ngIf="shelter.propertyType === '1'">Private Property</li>
+                  <li *ngIf="shelter.infantFriendly === '1'">Infant Friendly</li>
+                  <li *ngIf="shelter.elderFriendly === '1'">Elder Friendly</li>
+                  <li *ngIf="shelter.family === '1'">Family Place</li>
+                  <li *ngIf="shelter.family === '1'">Age group - {{shelter.familyAgeMin}} to {{shelter.familyAgeMax}}</li>
+                </ul>
               </div>
             </div>
             <div class="columns has-text-centered">

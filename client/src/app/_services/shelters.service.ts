@@ -81,4 +81,3 @@ export class SheltersService {
     );
   }
 }
-https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDoaA5lB4-JbSXElDWllnNU3QcArgxdreM&location=19.1334302,72.91326789999994&radius=5000&type=gas_station
