@@ -13,6 +13,8 @@ require('dotenv').config();
 const SECRET = process.env.SECRET;
 const DB_HOST = process.env.DB_HOST;
 const DB_PORT = process.env.DB_PORT;
+const DB_USER = process.env.DB_USER;
+const DB_PASS = process.env.DB_PASS;
 const SERVER_PORT = process.env.SERVER_PORT || 3000
 const SERVER_HOST = process.env.SERVER_HOST || 'localhost'
 const SWAGGER_JSON_PATH = process.env.SWAGGER_JSON_PATH || '/swagger.json'
@@ -20,7 +22,7 @@ const SWAGGER_DOCUMENTATION_PATH = process.env.SWAGGER_DOCUMENTATION_PATH || '/d
 const SWAGGER_UI_PATH = process.env.SWAGGER_UI_PATH || '/swaggerui/'
 const BASE_PATH = process.env.BASE_PATH || ''
 
-const dbUrl = `mongodb://${DB_HOST}:${DB_PORT}/reliefshelter`;
+const dbUrl = `mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/reliefshelter`;
 
 const validate = async function (decoded, request) {
     const user = await User.findOne({_id: decoded.id})

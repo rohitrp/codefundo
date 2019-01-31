@@ -21,6 +21,12 @@ import { ShelterCardComponent } from './shelters/shelter-card/shelter-card.compo
 import { RequestShelterComponent } from './request-shelter/request-shelter.component';
 import { ShelterInfoComponent } from './shelters/shelter-info/shelter-info.component';
 
+export function tokenGetter() {
+  const user = JSON.parse(localStorage.getItem('user'));
+  if (!user) return '';
+  return user.token;
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,13 +45,9 @@ import { ShelterInfoComponent } from './shelters/shelter-info/shelter-info.compo
     HttpClientModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: () => {
-          const user = JSON.parse(localStorage.getItem('user'));
-          if (!user) return '';
-          return user.token;
-        },
-        whitelistedDomains: ['localhost:3000'],
-        blacklistedRoutes: ['localhost:3000/api/users/']
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ['localhost:3000', 'gymkhana.iitb.ac.in'],
+        blacklistedRoutes: ['localhost:3000/api/users/', 'gymkhana.iitb.ac.in/codefundo/api/users/']
       }
     }),
     AppRoutingModule,
