@@ -31,7 +31,8 @@ const userModel = new Schema({
     firstName: { type: String },
     lastName: { type: String },
     mobileNumber: { type: Number },
-    aadharNumber: { type: Number }
+    aadharNumber: { type: Number },
+    verifiedMobile: {type: Boolean, default: false }
 
 });
 module.exports = mongoose.model('User', userModel);

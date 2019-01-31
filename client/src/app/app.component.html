@@ -2,6 +2,26 @@
   <div id="navbar">
     <app-navbar></app-navbar>
   </div>
+  <div id="otp-banner" >
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-2" *ngIf="!otpGenerated">
+        <a class="button is-primary" (click)="generateOtp()">Click here to verify your Mobile Number</a>
+      </div>
+      <ng-container *ngIf="otpGenerated">
+        <div class="column is-2">
+          <div class="field">
+            <div class="control">
+              <input class="input" type="number" placeholder="OTP" [(ngModel)]="otp" name="otp" required>
+            </div>
+          </div>
+        </div>
+        <div class="column is-2">
+          <a class="button is-primary" (click)="verifyOtp()">Verify OTP</a>
+        </div>
+      </ng-container>
+
+    </div>
+  </div>
   <div id="body">
     <router-outlet></router-outlet>
   </div>

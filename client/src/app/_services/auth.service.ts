@@ -54,6 +54,28 @@ export class AuthService {
     return user.token;
   }
 
+
+  public generateOtp(){
+    return this.http.post(
+      `${this.apiBaseUrl}/users/otp`,{}
+    );
+  }
+
+  
+
+  public verifyOtp(otp){
+    const params = {
+      otp: otp
+    };
+    return this.http.get(
+      `${this.apiBaseUrl}/users/otp`,{
+        params: params
+      }
+    );
+  }
+
+  
+
   public getUserDetails() {
     return this.http.get(
       `${this.apiBaseUrl}/users/details`

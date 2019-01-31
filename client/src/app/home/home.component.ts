@@ -40,7 +40,7 @@ export class HomeComponent implements AfterViewInit {
       accessToken: mapboxgl.accessToken
     }));
 
-    this.sheltersService.getAllShelters()
+    this.sheltersService.getAllShelters(72,72,50)
       .subscribe(
         (res) => {
           var i = 0;
