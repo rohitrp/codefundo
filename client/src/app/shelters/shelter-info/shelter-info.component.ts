@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { SheltersService } from 'src/app/_services/shelters.service';
 import { Shelter } from '../shelter';
 import { AlertService } from 'src/app/_services/alert.service';
+import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
   selector: 'app-shelter-info',
@@ -29,7 +30,8 @@ export class ShelterInfoComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private shelterService: SheltersService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    public authService: AuthService
   ) { }
 
   distance(place) {

@@ -8,7 +8,7 @@
         <div class="columns">
           <div class="column is-4">
             <p *ngIf="shelter['official']" class="has-text-success">
-              <i class="fa fa-check"></i>&nbsp;Official Government Shelter
+              <i class="fa fa-check-circle"></i>&nbsp;Official Government Shelter
             </p>
             <p class="title">
               {{ shelter.name }}
@@ -32,6 +32,9 @@
           <div class="column is-4">
             <div class="content">
               <p>Approx <span class="has-text-weight-bold">{{shelter['distance']}} kms</span> away</p>
+              <p *ngIf="authService.isUserVerified()" class="has-text-info">
+                <i class="fa fa-check-circle"></i>&nbsp;Posted by a verified user
+              </p>
             </div>
           </div>
         </div>

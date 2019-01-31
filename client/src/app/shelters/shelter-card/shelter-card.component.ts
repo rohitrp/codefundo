@@ -3,6 +3,7 @@ import { Shelter } from '../shelter';
 import { SheltersService } from 'src/app/_services/shelters.service';
 import { AlertService } from 'src/app/_services/alert.service';
 import * as $ from 'jquery';
+import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
   selector: 'app-shelter-card',
@@ -41,7 +42,8 @@ export class ShelterCardComponent implements OnInit {
   
   constructor(
     private shelterService: SheltersService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    public authService: AuthService
   ) { }
 
   ngOnInit() {

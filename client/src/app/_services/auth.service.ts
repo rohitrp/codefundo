@@ -54,14 +54,21 @@ export class AuthService {
     return user.token;
   }
 
+  public isUserVerified() {
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!user) {
+      return '';
+    }
+
+    return user.verifiedMobile;
+  }
 
   public generateOtp(){
     return this.http.post(
       `${this.apiBaseUrl}/users/otp`,{}
     );
   }
-
-  
 
   public verifyOtp(otp){
     const params = {
@@ -73,8 +80,6 @@ export class AuthService {
       }
     );
   }
-
-  
 
   public getUserDetails() {
     return this.http.get(

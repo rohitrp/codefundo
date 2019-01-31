@@ -2,7 +2,7 @@
   <div id="navbar">
     <app-navbar></app-navbar>
   </div>
-  <div id="otp-banner" *ngIf="!user.verifiedMobile">
+  <div id="otp-banner" *ngIf="authService.isAuthenticated() && !authService.isUserVerified()">
     <div class="columns is-centered has-text-centered">
       <div class="column is-2" *ngIf="!otpGenerated">
         <a class="button is-primary" (click)="generateOtp()">Click here to verify your Mobile Number</a>

@@ -38,6 +38,7 @@ async function getUserDetails(user) {
     return {
         user: {
             email: user.email,
+            verifiedMobile: user.verifiedMobile,
             token: createToken(user)
         }
     }

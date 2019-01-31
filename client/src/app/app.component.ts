@@ -15,25 +15,25 @@ export class AppComponent {
 
   constructor(
     private seoService: SEOService,
-    private authService: AuthService
+    public authService: AuthService
   ) {
     this.seoService.addSeoData();
   }
 
-  generateOtp(){
+  generateOtp() {
     this.authService.generateOtp()
       .subscribe(
         (res) => {
-          this.otpGenerated= true;
-          
+          this.otpGenerated = true;
+
         }
       )
   }
-  verifyOtp(){
+  verifyOtp() {
     this.authService.verifyOtp(this.otp)
       .subscribe(
         (res) => {
-          this.user.verifiedMobile =  true;
+          this.user.verifiedMobile = true;
         }
       )
 
@@ -41,11 +41,13 @@ export class AppComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.authService.getUserDetails()
-      .subscribe(
-        (res) => {
-          this.user = res;
-        }
-      )
+    if (this.authService.isAuthenticated()) {
+      this.authService.getUserDetails()
+        .subscribe(
+          (res) => {
+            this.user = res;
+          }
+        )
+    }
   }
 }

@@ -8,15 +8,20 @@
             <div class="columns">
               <div class="column is-4">
                 <p *ngIf="shelter['official']" class="has-text-success">
-                  <i class="fa fa-check"></i>&nbsp;Official Government Shelter
+                  <i class="fa fa-check-circle"></i>&nbsp;Official Government Shelter
                 </p>
+                <p *ngIf="authService.isUserVerified()" class="has-text-info">
+                  <i class="fa fa-check-circle"></i>&nbsp;Posted by a verified user
+                </p>
+                <br>
                 <p class="title">
                   {{ shelter.name }}
                 </p>
                 <p class="subtitle">
                   {{ shelter.contact }}
                 </p>
-                <p class="has-text-weight-bold has-text-grey">Updated on {{shelter.lastUpdated | date: 'mediumDate'}} | {{shelter.lastUpdated | date: 'shortTime'}}</p>
+                <p class="has-text-weight-bold has-text-grey">Updated on {{shelter.lastUpdated | date: 'mediumDate'}} |
+                  {{shelter.lastUpdated | date: 'shortTime'}}</p>
 
               </div>
               <div class="column is-4">
