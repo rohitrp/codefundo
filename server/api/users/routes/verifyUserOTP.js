@@ -23,7 +23,9 @@ module.exports = {
         }
         // console.log(options)
         let res = await rp(options)
-        // console.log(res)
+        
+        await User.updateOne({ _id: user._id }, { verifiedMobile: true })
+        
         return res
       },
       auth: {

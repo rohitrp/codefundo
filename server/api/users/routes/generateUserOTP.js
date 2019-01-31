@@ -20,7 +20,8 @@ module.exports = {
             }
             
         }
-        let res = await rp(options)
+        console.log(options)
+        let res = await rp(options).then(console.log, console.log)
         return {message: 'successful'}
       },
       auth: {
