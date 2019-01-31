@@ -14,7 +14,6 @@ export class Shelter {
     public lastUpdated: Date,
     public family: string,
     public familyAgeMin: number,
-    public familyAgeMax: number,
-    public _id: string
+    public familyAgeMax: number
   ) { }
 }

@@ -7,11 +7,10 @@ module.exports = {
   options: {
     handler: async (request, h) => {
         let shelter = new Shelter(request.payload)
-
         shelter.user = request.auth.credentials.id
 
         await shelter.save()
-
+        
         return shelter
       },
       auth: {

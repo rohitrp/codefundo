@@ -14,7 +14,7 @@ import * as $ from 'jquery';
 })
 export class AddShelterComponent implements AfterViewInit {
   mapboxAccessToken = environment.mapboxAccessToken;
-  shelter = new Shelter('', '', '', '', '', '', '', null, null, null, false, null, null, null, null, '');
+  shelter = new Shelter('', '', '', '', '', '', '', null, null, null, false, null, null, null, null);
 
   shelterDetailsTab = 0;
 
