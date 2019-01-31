@@ -61,16 +61,24 @@ export class SheltersService {
     );
   }
 
-  // public getHospitalDetails(lngLat, distance): Observable<any> {
-  //   return this.http.get(
-  //     `https://dev.virtualearth.net/REST/v1/LocalSearch/`,
-  //     {
-  //       params: {
-  //         'query': 'hospital',
-  //         'userLocation': lngLat,
-  //         'key': environment.bingMapsAPIKey
-  //       }
-  //     }
-  //   );
-  // }
+  public getShelterInfo(id): Observable<any> {
+    return this.http.get(
+      `${this.apiBaseUrl}/shelters/${id}`
+    );
+  }
+
+  public getNearbyPlaces(lngLat, radius, type): Observable<any> {
+    return this.http.get(
+      `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json`,
+      {
+        params: {
+          'type': type,
+          'location': lngLat.split(",").reverse().join(","),
+          'key': environment.googleMapsAPIKey,
+          'radius': radius
+        }
+      }
+    );
+  }
 }
+https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDoaA5lB4-JbSXElDWllnNU3QcArgxdreM&location=19.1334302,72.91326789999994&radius=5000&type=gas_station

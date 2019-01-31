@@ -1,0 +1,10 @@
+.shelter-info-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#map {
+  width: 100%;
+  height: 40vh;
+}

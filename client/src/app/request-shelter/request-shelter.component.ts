@@ -26,12 +26,11 @@ export class RequestShelterComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
-    console.log(this.requestCoordinates);
     Object.getOwnPropertyDescriptor(mapboxgl, "accessToken").set(this.mapboxAccessToken);
 
     var map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/navigation-guidance-night-v4',
+      style: 'mapbox://styles/mapbox/nsatellite-streets-v10',
       center: [72.914294, 19.130722],
       zoom: 12
     });

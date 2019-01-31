@@ -1,0 +1,103 @@
+<div class="shelter-info-container">
+  <div id="map"></div>
+  <div class="section">
+    <div class="columns">
+      <div class="column">
+        <div class="card">
+          <div class="card-content">
+            <div class="columns">
+              <div class="column is-4">
+                <p class="title">
+                  {{ shelter.name }}
+                </p>
+                <p class="subtitle">
+                  {{ shelter.contact }}
+                </p>
+              </div>
+              <div class="column is-4">
+                <div class="content">
+                  <span class="has-text-info">Address:</span> {{shelter.address}}
+                  <br>
+                  <span class="has-text-info">City:</span> {{shelter.city}}
+                  <br>
+                  <span class="has-text-info">State:</span> {{shelter.state}}
+                  <br><br>
+                </div>
+              </div>
+            </div>
+            <div class="columns has-text-centered">
+              <div class="column">
+                <div class="content">
+                  <h2>Nearby Places</h2>
+                </div>
+              </div>
+            </div>
+            <div class="columns is-multiline">
+              <div class="column is-4">
+                <div class="content">
+                  <h4>Hospitals</h4>
+                  <ul class="has-text-grey">
+                    <li *ngFor="let hospital of nearByHospitals">
+                      {{hospital.name}}, &nbsp;<span class="has-text-weight-bold">{{distance(hospital)}} kms</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="column is-4">
+                <div class="content">
+                  <h4>ATMs</h4>
+                  <ul class="has-text-grey">
+                    <li *ngFor="let atm of nearByAtms">
+                      {{atm.name}}, &nbsp;<span class="has-text-weight-bold">{{distance(atm)}} kms</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="column is-4">
+                <div class="content">
+                  <h4>Airports</h4>
+                  <ul class="has-text-grey">
+                    <li *ngFor="let airport of nearByAirports">
+                      {{airport.name}}, &nbsp;<span class="has-text-weight-bold">{{distance(airport)}} kms</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="column is-4">
+                <div class="content">
+                  <h4>Train Stations</h4>
+                  <ul class="has-text-grey">
+                    <li *ngFor="let trainStation of nearByTrainStations">
+                      {{trainStation.name}}, &nbsp;<span class="has-text-weight-bold">{{distance(trainStation)}} kms</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="column is-4">
+                <div class="content">
+                  <h4>Police Stations</h4>
+                  <ul class="has-text-grey">
+                    <li *ngFor="let policeStation of nearByPoliceStations">
+                      {{policeStation.name}}, &nbsp;<span class="has-text-weight-bold">{{distance(policeStation)}} kms</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="column is-4">
+                <div class="content">
+                  <h4>Fire Stations</h4>
+                  <ul class="has-text-grey">
+                    <li *ngFor="let fireStation of nearByFireStations">
+                      {{fireStation.name}}, &nbsp;<span class="has-text-weight-bold">{{distance(fireStation)}} kms</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
