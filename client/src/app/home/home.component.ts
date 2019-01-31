@@ -47,8 +47,8 @@ export class HomeComponent implements AfterViewInit {
           for (i = 0; i < res.length; i++) {
             var shelterMarkerDiv = document.createElement('div');
             shelterMarkerDiv.style.backgroundImage = 'url("assets/shelter.png")';
-            shelterMarkerDiv.style.width = '50px';
-            shelterMarkerDiv.style.height = '50px';
+            shelterMarkerDiv.style.width = '64px';
+            shelterMarkerDiv.style.height = '64px';
             shelterMarkerDiv.style.backgroundRepeat = 'no-repeat'
 
             const shelter = res[i];
