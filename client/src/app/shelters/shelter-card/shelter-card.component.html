@@ -1,6 +1,6 @@
 <div class="columns">
   <div class="column is-1">
-    <div class="shelter-danger is-pulled-right shelter-status-info"></div>
+    <div class="is-pulled-right shelter-status-info" [ngClass]="{'shelter-danger': shelterStatus === 0, 'shelter-warning': shelterStatus === 1, 'shelter-safe': shelterStatus === 2}"></div>
   </div>
   <div class="column">
     <div class="card">

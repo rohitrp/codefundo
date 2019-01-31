@@ -12,6 +12,7 @@ export class SheltersComponent implements OnInit {
   tab = 0;
   shelters = [];
   user: any;
+  zipcodeStatus = {};
 
   constructor(
     private alertService: AlertService,
@@ -30,6 +31,12 @@ export class SheltersComponent implements OnInit {
       .subscribe(
         (res) => this.shelters = res,
         (err) => this.alertService.error(err)
+      );
+
+    this.shelterService.getZipcodeStatus()
+      .subscribe(
+        (res) => this.zipcodeStatus = res[0],
+        this.alertService.error
       );
   }
 

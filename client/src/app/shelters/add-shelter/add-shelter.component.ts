@@ -33,8 +33,6 @@ export class AddShelterComponent implements AfterViewInit {
       return;
     }
 
-    console.log(this.shelter);
-
     this.shelterService.addShelter(this.shelter)
       .subscribe(
         (res) => this.alertService.success('Shelter successfully added'),

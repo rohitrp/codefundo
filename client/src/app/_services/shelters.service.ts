@@ -80,4 +80,10 @@ export class SheltersService {
       }
     );
   }
+
+  public getZipcodeStatus(): Observable<any> {
+    return this.http.get(
+      `${this.apiBaseUrl}/zipcode/status`
+    );
+  }
 }

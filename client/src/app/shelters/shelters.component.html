@@ -19,7 +19,7 @@
         </div>
         <div class="columns" *ngFor="let shelter of shelters">
           <div class="column">
-            <app-shelter-card [shelter]="shelter" [user]="user" (updateUserDetails)="updateUserDetails($event)"></app-shelter-card>
+            <app-shelter-card [shelter]="shelter" [user]="user" [zipcodeStatus]="zipcodeStatus" (updateUserDetails)="updateUserDetails($event)"></app-shelter-card>
           </div>
         </div>
       </div>
