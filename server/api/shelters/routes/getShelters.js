@@ -33,6 +33,7 @@ module.exports = {
     handler: async (request, h) => {
       const userLat = +request.query.lat
       const userLng = +request.query.lng
+      const radius = +request.query.radius
 
       const shelters = await Shelter.find({}).lean()
 
@@ -45,7 +46,7 @@ module.exports = {
 
       for (let i = 0; i < shelters.length; i++) {
         const dist = distance(userLat, userLng, shelters[i]);
-        if ( dist < 50) {
+        if ( dist <= radius) {
           shelters[i]['distance'] = dist
           nearbyShelters.push(shelters[i])
         }

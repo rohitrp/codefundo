@@ -14,6 +14,12 @@ export class SheltersComponent implements OnInit {
   user: any;
   zipcodeStatus = {};
 
+  radius = 50;
+  infantFriendly: any;
+  elderFriendly: any;
+  official: any;
+  verified: any;
+
   constructor(
     private alertService: AlertService,
     private shelterService: SheltersService,
@@ -30,15 +36,16 @@ export class SheltersComponent implements OnInit {
     this.shelterService.getLatLng()
       .subscribe(
         (res) => {
-          this.shelterService.getAllShelters(res.lat, res.lon)
+          this.shelterService.getAllShelters(res.lat, res.lon, this.radius)
             .subscribe(
-              (res) => this.shelters = res,
+              (res) => {
+                res.sort(this.shelterSortFunc);
+                this.shelters = res;
+              },
               (err) => this.alertService.error(err)
             );
         }
       );
-
-
 
     this.shelterService.getZipcodeStatus()
       .subscribe(
@@ -49,6 +56,58 @@ export class SheltersComponent implements OnInit {
 
   updateUserDetails(user) {
     this.user = user;
+  }
+
+  getShelterScore(shelter) {
+    var score = 0;
+
+    if (this.infantFriendly && shelter.infantFriendly === '1') score++;
+    if (this.elderFriendly && shelter.elderFriendly === '1') score++;
+    if (this.official && shelter.official) score++;
+    if (this.verified && shelter.verified) score++;
+
+    return score;
+  }
+
+  shelterSortFunc(a, b) {
+    var keyA = a['score'],
+      keyB = b['score'];
+
+    if (keyA < keyB) return 1;
+    if (keyA > keyB) return -1;
+
+    keyA = +a['distance'];
+    keyB = +b['distance'];
+
+    if (keyA < keyB) return -1;
+    if (keyA > keyB) return +1;
+
+    return 0;
+
+  }
+
+  updateSearchResults() {
+    this.shelterService.getLatLng()
+      .subscribe(
+        (res) => {
+          this.shelterService.getAllShelters(res.lat, res.lon, this.radius)
+            .subscribe(
+              (res) => {
+                for (let i = 0; i < res.length; i++) {
+                  res[i]['score'] = this.getShelterScore(res[i]);
+                  console.log(res[i]);
+                }
+
+                res.sort(this.shelterSortFunc);
+
+                this.shelters = res;
+                console.log(this.shelters);
+
+              },
+              (err) => this.alertService.error(err)
+            );
+        }
+      );
   }
 
 }

@@ -28,13 +28,14 @@ export class SheltersService {
     );
   }
 
-  public getAllShelters(lat, lng): Observable<Shelter[]> {
+  public getAllShelters(lat, lng, radius): Observable<Shelter[]> {
     return this.http.get<Shelter[]>(
       `${this.apiBaseUrl}/shelters`,
       {
         params: {
           lat: lat,
-          lng: lng
+          lng: lng,
+          radius: radius
         }
       }
     );

@@ -17,6 +17,43 @@
         <div class="content has-text-centered" *ngIf="shelters.length === 0">
           <h1 class="has-text-grey-lighter">No shelters available</h1>
         </div>
+        <div class="columns has-text-centered">
+          <div class="column is-2">
+            <div class="field">
+              <div class="control">
+                <input class="input" type="number" placeholder="Radius (kms)" [(ngModel)]="radius" name="radius" required>
+              </div>
+            </div>
+          </div>
+          <div class="column is-2">
+            <div class="field">
+              <input class="is-checkradio" id="is-infant-friendly" type="checkbox" name="is-infant-friendly"
+                [(ngModel)]="infantFriendly">
+              <label for="is-infant-friendly">Infant Friendly</label>
+            </div>
+          </div>
+          <div class="column is-2">
+            <div class="field">
+              <input class="is-checkradio" id="is-elder-friendly" type="checkbox" name="is-elder-friendly" [(ngModel)]="elderFriendly">
+              <label for="is-elder-friendly">Elder Friendly</label>
+            </div>
+          </div>
+          <div class="column is-2">
+            <div class="field">
+              <input class="is-checkradio" id="is-official" type="checkbox" name="is-official" [(ngModel)]="official">
+              <label for="is-official">Official</label>
+            </div>
+          </div>
+          <div class="column is-2">
+            <div class="field">
+              <input class="is-checkradio" id="is-verified" type="checkbox" name="is-verified" [(ngModel)]="verified">
+              <label for="is-verified">Verified</label>
+            </div>
+          </div>
+          <div class="column is-2">
+            <a class="button is-primary" (click)="updateSearchResults()">Search</a>
+          </div>
+        </div>
         <div class="columns" *ngFor="let shelter of shelters">
           <div class="column">
             <app-shelter-card [shelter]="shelter" [user]="user" [zipcodeStatus]="zipcodeStatus" (updateUserDetails)="updateUserDetails($event)"></app-shelter-card>
