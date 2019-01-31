@@ -6,7 +6,8 @@ const addShelterSchema = Joi.object().keys({
   address: Joi.string().required(),
   city: Joi.string().required(),
   state: Joi.string().required(),
-  lngLat: Joi.string().required()
+  lngLat: Joi.string().required(),
+  zipcode: Joi.string().required()
 })
 
 module.exports = addShelterSchema

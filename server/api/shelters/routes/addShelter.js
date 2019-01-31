@@ -6,15 +6,9 @@ module.exports = {
   path: '/api/shelters',
   options: {
     handler: async (request, h) => {
-        let shelter = new Shelter()
+        let shelter = new Shelter(request.payload)
 
-        shelter.name = request.payload.name
-        shelter.contact = request.payload.contact
-        shelter.address = request.payload.address
-        shelter.city = request.payload.city
-        shelter.state = request.payload.state
         shelter.user = request.auth.credentials.id
-        shelter.lngLat = request.payload.lngLat
 
         await shelter.save()
 
@@ -23,9 +17,9 @@ module.exports = {
       auth: {
         strategy: 'jwt'
       },
-      validate: {
-        payload: addShelterSchema
-      },
+      // validate: {
+      //   payload: addShelterSchema
+      // },
       description: 'Add shelter',
       notes: 'Adds shelter',
       tags: ['api', 'shelter']

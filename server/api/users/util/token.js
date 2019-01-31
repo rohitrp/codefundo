@@ -13,7 +13,7 @@ function createToken(user) {
         SECRET, 
         { 
             algorithm: 'HS256', 
-            expiresIn: '1h' 
+            expiresIn: '10h' 
         }
     )
 }
