@@ -22,9 +22,21 @@ export class SheltersService {
     );
   }
 
-  public getAllShelters(): Observable<Shelter[]> {
+  public getLatLng(): Observable<any> {
+    return this.http.get(
+      'http://ip-api.com/json/'
+    );
+  }
+
+  public getAllShelters(lat, lng): Observable<Shelter[]> {
     return this.http.get<Shelter[]>(
-      `${this.apiBaseUrl}/shelters`
+      `${this.apiBaseUrl}/shelters`,
+      {
+        params: {
+          lat: lat,
+          lng: lng
+        }
+      }
     );
   }
 

@@ -7,6 +7,9 @@
           <div class="card-content">
             <div class="columns">
               <div class="column is-4">
+                <p *ngIf="shelter['official']" class="has-text-success">
+                  <i class="fa fa-check"></i>&nbsp;Official Government Shelter
+                </p>
                 <p class="title">
                   {{ shelter.name }}
                 </p>

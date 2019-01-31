@@ -27,11 +27,18 @@ export class SheltersComponent implements OnInit {
         (err) => this.alertService.error(err)
       );
 
-    this.shelterService.getAllShelters()
+    this.shelterService.getLatLng()
       .subscribe(
-        (res) => this.shelters = res,
-        (err) => this.alertService.error(err)
+        (res) => {
+          this.shelterService.getAllShelters(res.lat, res.lon)
+            .subscribe(
+              (res) => this.shelters = res,
+              (err) => this.alertService.error(err)
+            );
+        }
       );
+
+
 
     this.shelterService.getZipcodeStatus()
       .subscribe(
