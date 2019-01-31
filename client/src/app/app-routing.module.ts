@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { SheltersComponent } from './shelters/shelters.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { RequestShelterComponent } from './request-shelter/request-shelter.component';
+import { ShelterInfoComponent } from './shelters/shelter-info/shelter-info.component';
 
 const routes: Routes = [
   { 
@@ -38,6 +39,18 @@ const routes: Routes = [
       title: 'Shelters',
       metatags: {
         desciption: 'Relief Shelter Registration',
+        keywords: ''
+      }
+    }
+  },
+  { 
+    path: 'shelters/:id', 
+    component: ShelterInfoComponent,
+    canActivate: [AuthGuard],
+    data: {
+      title: 'Shelter Info',
+      metatags: {
+        desciption: 'Relief Shelter Information',
         keywords: ''
       }
     }
