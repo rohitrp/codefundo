@@ -18,13 +18,10 @@ export class AuthService {
 
   apiBaseUrl = environment.apiBaseUrl;
 
-  public signup(email: String, password: String): Observable<any> {
+  public signup(user): Observable<any> {
     return this.http.post(
       `${this.apiBaseUrl}/users`,
-      {
-        email: email,
-        password: password
-      }
+      user
     );
   }
 

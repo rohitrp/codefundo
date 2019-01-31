@@ -11,9 +11,22 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
   email: string;
   password: string;
+  firstName: string;
+  lastName: string;
+  mobileNumber: number;
+  aadharNumber: number;
 
   public signup() {
-    this.authService.signup(this.email, this.password)
+    const user = {
+      email: this.email,
+      password: this.password,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      mobileNumber: +this.mobileNumber,
+      aadharNumber: +this.aadharNumber
+    };
+
+    this.authService.signup(user)
       .subscribe(
         (res) => {
           localStorage.setItem('user', JSON.stringify(res['user']));

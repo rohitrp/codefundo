@@ -16,9 +16,8 @@ module.exports = {
   path: '/api/users',
   options: {
     handler: async (request, h) => {
-      let user = new User()
+      let user = new User(request.payload)
 
-      user.email = request.payload.email
       user.password = await hashPasword(request.payload.password)
 
       await user.save(console.error)
@@ -28,9 +27,6 @@ module.exports = {
     pre: [{
       method: verifyUniqueUser
     }],
-    validate: {
-      payload: createUserSchema
-    },
     description: 'User signup',
     notes: 'Returns a token on successful signup',
     tags: ['api', 'user']

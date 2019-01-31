@@ -11,11 +11,27 @@ const Schema = mongoose.Schema;
 // });
 
 const userModel = new Schema({
-    email: { type: String, required: true },
+    email: {
+        type: String,
+        required: true
+    },
     // first_name: { type: String, required: true },
     // last_name: { type: String, required: true },
-    password: { type: String, required: true },
-    shelter:  { type: Schema.Types.ObjectId, ref: 'Shelter' },
-    shelterRequestLngLat: { type: String }
+    password: {
+        type: String,
+        required: true
+    },
+    shelter: {
+        type: Schema.Types.ObjectId,
+        ref: 'Shelter'
+    },
+    shelterRequestLngLat: {
+        type: String
+    },
+    firstName: { type: String },
+    lastName: { type: String },
+    mobileNumber: { type: Number },
+    aadharNumber: { type: Number }
+
 });
 module.exports = mongoose.model('User', userModel);
