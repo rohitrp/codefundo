@@ -10,7 +10,7 @@
                 <p *ngIf="shelter['official']" class="has-text-success">
                   <i class="fa fa-check-circle"></i>&nbsp;Official Government Shelter
                 </p>
-                <p *ngIf="authService.isUserVerified()" class="has-text-info">
+                <p *ngIf="shelter['verified']" class="has-text-info">
                   <i class="fa fa-check-circle"></i>&nbsp;Posted by a verified user
                 </p>
                 <br>

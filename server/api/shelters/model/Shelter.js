@@ -18,7 +18,8 @@ const shelterModel = new Schema({
     lastUpdated: { type: Date },
     family: { type: String },
     familyAgeMin: { type: String },
-    familyAgeMax: { type: String }
+    familyAgeMax: { type: String },
+    verified: { type: Boolean, default: false }
 });
 
 shelterModel.pre('save', function(next) {

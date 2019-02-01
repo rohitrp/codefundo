@@ -96,14 +96,11 @@ export class SheltersComponent implements OnInit {
               (res) => {
                 for (let i = 0; i < res.length; i++) {
                   res[i]['score'] = this.getShelterScore(res[i]);
-                  console.log(res[i]);
                 }
 
                 res.sort(this.shelterSortFunc);
 
                 this.shelters = res;
-                console.log(this.shelters);
-
               },
               (err) => this.alertService.error(err)
             );

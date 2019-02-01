@@ -1,5 +1,6 @@
 var rp = require('request-promise');
 const User = require('../model/User')
+const Shelter = require('../../shelters/model/Shelter')
 const authyBaseUrl = process.env.TWILIO_API_URL  
 const API_KEY = process.env.TWILIO_API_KEY
 
@@ -9,6 +10,7 @@ module.exports = {
   options: {
     handler: async (request, h) => {
         const user = await User.findOne({_id: request.auth.credentials.id})
+
         const options = {
             method:'GET',
             url: `${authyBaseUrl}/check`,
@@ -21,12 +23,13 @@ module.exports = {
             }
             
         }
-        // console.log(options)
         let res = await rp(options)
-        console.log(res)
+
         await User.updateOne({ _id: user._id }, { verifiedMobile: true })
 
-        return res
+        await Shelter.updateMany({ user: user._id }, { $set: { verified: true }})
+
+        return user
       },
       auth: {
         strategy: 'jwt'

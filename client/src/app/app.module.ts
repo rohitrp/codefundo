@@ -20,6 +20,8 @@ import { AddShelterComponent } from './shelters/add-shelter/add-shelter.componen
 import { ShelterCardComponent } from './shelters/shelter-card/shelter-card.component';
 import { RequestShelterComponent } from './request-shelter/request-shelter.component';
 import { ShelterInfoComponent } from './shelters/shelter-info/shelter-info.component';
+import { NgHttpLoaderModule } from 'ng-http-loader';
+import { LoaderComponent } from './loader/loader.component'; 
 
 export function tokenGetter() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -38,7 +40,8 @@ export function tokenGetter() {
     AddShelterComponent,
     ShelterCardComponent,
     RequestShelterComponent,
-    ShelterInfoComponent
+    ShelterInfoComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -51,13 +54,17 @@ export function tokenGetter() {
       }
     }),
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgHttpLoaderModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     AuthGuard,
     AlertService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    LoaderComponent
+  ]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SEOService } from './_services/seo.service';
 import { AuthService } from './_services/auth.service';
+import { LoaderComponent } from './loader/loader.component';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ export class AppComponent {
   user: any;
   otp: any;
   otpGenerated = false;
+  loader = LoaderComponent;
 
   constructor(
     private seoService: SEOService,
