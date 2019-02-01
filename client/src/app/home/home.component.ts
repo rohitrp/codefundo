@@ -67,7 +67,7 @@ export class HomeComponent implements AfterViewInit {
               },
               (err) => this.alertService.error(err)
             );
-        }
+        });
 
     // this.sheltersService.getAllSheltersRequests()
     //   .subscribe(
