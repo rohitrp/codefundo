@@ -43,7 +43,7 @@ export class HomeComponent implements AfterViewInit {
     this.sheltersService.getLatLng()
       .subscribe(
         (res) => {
-          this.sheltersService.getAllShelters(res.lat, res.lon, 50)
+          this.sheltersService.getAllShelters(res.latitude, res.longitude, 50)
             .subscribe(
               (res) => {
                 var i = 0;

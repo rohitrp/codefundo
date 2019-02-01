@@ -36,7 +36,7 @@ export class SheltersComponent implements OnInit {
     this.shelterService.getLatLng()
       .subscribe(
         (res) => {
-          this.shelterService.getAllShelters(res.lat, res.lon, this.radius)
+          this.shelterService.getAllShelters(res.latitude, res.longitude, this.radius)
             .subscribe(
               (res) => {
                 res.sort(this.shelterSortFunc);
@@ -44,7 +44,8 @@ export class SheltersComponent implements OnInit {
               },
               (err) => this.alertService.error(err)
             );
-        }
+        }, 
+        this.alertService.error
       );
 
     this.shelterService.getZipcodeStatus()
@@ -90,7 +91,7 @@ export class SheltersComponent implements OnInit {
     this.shelterService.getLatLng()
       .subscribe(
         (res) => {
-          this.shelterService.getAllShelters(res.lat, res.lon, this.radius)
+          this.shelterService.getAllShelters(res.latitude, res.longitude, this.radius)
             .subscribe(
               (res) => {
                 for (let i = 0; i < res.length; i++) {
@@ -106,7 +107,8 @@ export class SheltersComponent implements OnInit {
               },
               (err) => this.alertService.error(err)
             );
-        }
+        },
+        this.alertService.error
       );
   }
 

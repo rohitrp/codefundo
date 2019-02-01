@@ -24,7 +24,7 @@ export class SheltersService {
 
   public getLatLng(): Observable<any> {
     return this.http.get(
-      'http://ip-api.com/json/'
+      'https://ipapi.co/json'
     );
   }
 
