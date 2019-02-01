@@ -30,7 +30,7 @@ export class RequestShelterComponent implements AfterViewInit, OnInit {
 
     var map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/nsatellite-streets-v10',
+      style: 'mapbox://styles/mapbox/satellite-streets-v10',
       center: [72.914294, 19.130722],
       zoom: 12
     });

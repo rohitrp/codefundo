@@ -33,7 +33,7 @@ export class AppComponent {
     this.authService.verifyOtp(this.otp)
       .subscribe(
         (res) => {
-          this.user.verifiedMobile = true;
+          this.authService.refreshToken();
         }
       )
 

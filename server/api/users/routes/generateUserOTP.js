@@ -20,7 +20,6 @@ module.exports = {
             }
             
         }
-        console.log(options)
         let res = await rp(options).then(console.log, console.log)
         return {message: 'successful'}
       },

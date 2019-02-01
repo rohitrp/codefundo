@@ -40,30 +40,34 @@ export class HomeComponent implements AfterViewInit {
       accessToken: mapboxgl.accessToken
     }));
 
-    this.sheltersService.getAllShelters(72,72,50)
+    this.sheltersService.getLatLng()
       .subscribe(
         (res) => {
-          var i = 0;
-          for (i = 0; i < res.length; i++) {
-            var shelterMarkerDiv = document.createElement('div');
-            shelterMarkerDiv.style.backgroundImage = 'url("assets/shelter.png")';
-            shelterMarkerDiv.style.width = '64px';
-            shelterMarkerDiv.style.height = '64px';
-            shelterMarkerDiv.style.backgroundRepeat = 'no-repeat'
+          this.sheltersService.getAllShelters(res.lat, res.lon, 50)
+            .subscribe(
+              (res) => {
+                var i = 0;
+                for (i = 0; i < res.length; i++) {
+                  var shelterMarkerDiv = document.createElement('div');
+                  shelterMarkerDiv.style.backgroundImage = 'url("assets/shelter.png")';
+                  shelterMarkerDiv.style.width = '64px';
+                  shelterMarkerDiv.style.height = '64px';
+                  shelterMarkerDiv.style.backgroundRepeat = 'no-repeat'
 
-            const shelter = res[i];
+                  const shelter = res[i];
 
-            new mapboxgl.Marker(shelterMarkerDiv)
-              .setLngLat(shelter.lngLat.split(','))
-              .setPopup(
-                new mapboxgl.Popup({ offset: 25 }) // add popups
-                  .setHTML('<h3 class="subtitle">' + shelter.name + '</h3><p>' + shelter.contact + '</p>')
-              )
-              .addTo(map);
-          }
-        },
-        (err) => this.alertService.error(err)
-      );
+                  new mapboxgl.Marker(shelterMarkerDiv)
+                    .setLngLat(shelter.lngLat.split(','))
+                    .setPopup(
+                      new mapboxgl.Popup({ offset: 25 }) // add popups
+                        .setHTML('<h3 class="subtitle">' + shelter.name + '</h3><p>' + shelter.contact + '</p>')
+                    )
+                    .addTo(map);
+                }
+              },
+              (err) => this.alertService.error(err)
+            );
+        }
 
     // this.sheltersService.getAllSheltersRequests()
     //   .subscribe(

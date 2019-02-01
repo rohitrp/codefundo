@@ -64,18 +64,30 @@ export class AuthService {
     return user.verifiedMobile;
   }
 
-  public generateOtp(){
-    return this.http.post(
-      `${this.apiBaseUrl}/users/otp`,{}
+  public refreshToken() {
+    this.http.post(
+      `${this.apiBaseUrl}/token/refresh`,
+      {}
+    ).subscribe(
+      (res) => {
+        localStorage.setItem('user', JSON.stringify(res['user']));
+        this.router.navigate(['']);
+      }
     );
   }
 
-  public verifyOtp(otp){
+  public generateOtp() {
+    return this.http.post(
+      `${this.apiBaseUrl}/users/otp`, {}
+    );
+  }
+
+  public verifyOtp(otp) {
     const params = {
       otp: otp
     };
     return this.http.get(
-      `${this.apiBaseUrl}/users/otp`,{
+      `${this.apiBaseUrl}/users/otp`, {
         params: params
       }
     );
