@@ -19,9 +19,17 @@
         </div>
         <div class="columns has-text-centered">
           <div class="column is-2">
-            <div class="field">
-              <div class="control">
-                <input class="input" type="number" placeholder="Radius (kms)" [(ngModel)]="radius" name="radius" required>
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">Radius (kms)</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control">
+                    <input class="input" type="number" placeholder="Radius (kms)" [(ngModel)]="radius" name="radius"
+                      required>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
