@@ -1,5 +1,6 @@
 const Shelter = require('../model/Shelter')
 const addShelterSchema = require('../schemas/addShelter')
+const User = require('../../users/model/User')
 
 module.exports = {
   method: 'POST',
@@ -8,6 +9,9 @@ module.exports = {
     handler: async (request, h) => {
         let shelter = new Shelter(request.payload)
         shelter.user = request.auth.credentials.id
+
+        const user = await User.findOne({ _id: shelter.user})
+        shelter.verified = user.verifiedMobile
 
         await shelter.save()
         
