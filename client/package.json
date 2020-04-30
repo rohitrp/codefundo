@@ -27,7 +27,7 @@
     "bulma-checkradio": "^2.1.0",
     "bulma-o-steps": "^1.0.9",
     "core-js": "^2.5.4",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "mapbox-gl": "^0.50.0",
     "ng-http-loader": "^5.0.0",
     "noty": "^3.2.0-beta",
